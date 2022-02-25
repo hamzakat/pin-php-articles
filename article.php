@@ -7,7 +7,7 @@ require("layout/head.php");
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-15 lg:w-2/ md:w-3/4 mx-auto">
         <div class="flex justify-between mb-6">
-            <span>By <strong>Samer </strong><span class="text-xs text-gray-400">Samer@mail.com</span></span>
+            <span>By <strong>Samer </strong><span class="text-xs text-gray-400">(Samer@mail.com)</span></span>
             <span class="text-xs text-gray-400">12 Jun 2019</span>
         </div>
 
@@ -24,7 +24,7 @@ require("layout/head.php");
 <div class="antialiased sm:mx-auto mx-10 max-w-screen-sm mt-20">
     <h3 class="mb-4 text-xl font-semibold text-gray-900">Comments</h3>
 
-    <div class="divide-y divide-gray-400">
+    <div class="divide-y divide-y-2 divide-gray-100">
 
         <div class="flex space-y-4 ">
 
@@ -32,6 +32,7 @@ require("layout/head.php");
                 <div class="flex justify-between">
                     <span><strong>Ahmad </strong><span class="text-xs text-gray-400">ahmad@mail.com</span></span>
                     <span class="text-xs text-gray-400">12 Jun 2019</span>
+
                 </div>
                 <p class="text-sm">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
