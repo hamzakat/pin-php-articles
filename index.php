@@ -1,4 +1,7 @@
-<?php require("layout/head.php") ?>
+<?php
+$PAGE_TITLE = "Articles";
+require("layout/head.php");
+?>
 
 <section class="text-gray-600 body-font mt-5">
     <div class="container px-5 py-5 mx-auto">
