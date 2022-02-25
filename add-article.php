@@ -3,14 +3,7 @@ $PAGE_TITLE = "Add Article";
 require("layout/head.php");
 ?>
 
-<section class="text-gray-600 body-font mt-5">
-    <div class="container px-5 py-5 mx-auto">
-        <div class="flex flex-col text-center w-full mb-5">
-            <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">Made by <a class="font-bold" href="https://github.com/hamzakat">Hamza Kattan</a></h2>
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Add Article</h1>
-        </div>
-    </div>
-</section>
+
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-15 mx-auto">
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
