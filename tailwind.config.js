@@ -1,14 +1,7 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-
 module.exports = {
+  content: ["./src/*.php*", "./src/layout/*.php"],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: [
-          'Lato',
-          ...defaultTheme.fontFamily.sans,
-        ]
-      }
-    }
-  }
-}
+    extend: {},
+  },
+  plugins: [],
+};

@@ -1,6 +1,6 @@
 <?php
 
-class Article implements JsonSerializable
+class ArticleSerializable implements JsonSerializable
 {
     private $id;
     private $title;
@@ -18,6 +18,9 @@ class Article implements JsonSerializable
         $this->text = $text;
     }
 
+    /**
+     * This method replaces all getters
+     */
     public function jsonSerialize()
     {
         return (object) get_object_vars($this);

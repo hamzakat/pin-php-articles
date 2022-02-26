@@ -24,7 +24,7 @@ require("layout/head.php");
 <div class="antialiased sm:mx-auto mx-10 max-w-screen-sm mt-20">
     <h3 class="mb-4 text-xl font-semibold text-gray-900">Comments</h3>
 
-    <div class="divide-y divide-y-2 divide-gray-100">
+    <div class="divide-y-2 divide-gray-100">
 
         <div class="flex space-y-4 ">
 

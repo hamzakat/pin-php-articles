@@ -1,7 +1,7 @@
 <?php
 
 require_once 'BaseDao.php';
-require_once '../models/Article.php';
+require_once SITE_ROOT . '/models/Article.php';
 
 class ArticleDAO extends BaseDAO
 {

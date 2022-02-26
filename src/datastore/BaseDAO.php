@@ -55,6 +55,7 @@ abstract class BaseDAO
         return null;
     }
 
+
     protected function getFields()
     {
         $properties = $this->reflection->getProperties(ReflectionProperty::IS_PRIVATE);

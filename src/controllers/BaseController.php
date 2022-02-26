@@ -12,16 +12,17 @@ class BaseController
 
     public function getAll()
     {
-        echo json_encode($this->dao->getAll());
+        return $this->dao->getAll();
     }
 
     public function getById($id)
     {
-        echo json_encode($this->dao->getById($_GET['getById']));
+        return $this->dao->getById($_GET['getById']);
     }
 
     public function handleRequests()
     {
+        // handling using URL parameters
         if (isset($_GET['getAll']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
             $this->getAll();
         }
