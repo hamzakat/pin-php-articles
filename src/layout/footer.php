@@ -1,7 +1,7 @@
 <footer class="text-gray-600 body-font">
     <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
         <a>
-            <img src="https://www.humansis.org/wp-content/uploads/2019/10/logo-humansis-1.png" class="w-20 " viewBox="0 0 24 24">
+            <img src="../img/logo-humansis.png" class="w-20 " viewBox="0 0 24 24">
 
         </a>
         <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">2022 Hamza

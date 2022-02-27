@@ -32,7 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if there is invalid input  before adding post
     if (empty($nameErr) && empty($titleErr) && empty($textErr)) {
         $newArticle = Article::makeArticle($name, $title, $text);
-        $articlesController->add($newArticle);
+        $result = $articlesController->add($newArticle);
+        if ($result) {
+            // created successfully, therefore, refresh the page
+            header("location: index.php");
+            exit();
+        } else {
+            die("Something went wrong. Please try again later.");
+        }
     }
 }
 require "layout/head.php";
@@ -42,14 +49,15 @@ require "layout/head.php";
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-15 mx-auto">
         <div class="lg:w-1/2 md:w-2/3 mx-auto">
-            <p class="text-red-700">
-                <!-- Print errors if there are any -->
-                <?php
-                if (isset($nameErr, $titleErr, $textErr)) {
-                    echo $nameErr . "<br />" . $titleErr . "<br />" . $textErr . "<br />";
-                }
-                ?>
-            </p>
+
+            <!-- Print errors if there are any -->
+            <?php
+            if (isset($nameErr, $titleErr, $textErr)) { ?>
+                <p class="text-red-700">
+                    <?php echo $nameErr . "<br />" . $titleErr . "<br />" . $textErr . "<br />" ?>
+                </p>
+            <?php } ?>
+
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
                 <div class="flex flex-wrap -m-2">
                     <div class="p-2 w-full">
@@ -60,8 +68,8 @@ require "layout/head.php";
                     </div>
                     <div class="p-2 w-full">
                         <div class="relative">
-                            <label for="email" class="leading-7 text-sm text-gray-600">Title</label>
-                            <input type="email" id="email" name="title" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <label for="title" class="leading-7 text-sm text-gray-600">Title</label>
+                            <input type="text" id="title" name="title" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                         </div>
                     </div>
                     <div class="p-2 w-full">

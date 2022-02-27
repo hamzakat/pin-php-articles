@@ -29,6 +29,8 @@ class Article
         $article = new Article(0, $title, 0, $contributorName, $text);
         return $article;
     }
+
+
     /**
      * Get the value of title
      *
@@ -77,6 +79,6 @@ class Article
      */
     public function getId()
     {
-        return $this->id;
+        return (int) $this->id;
     }
 }

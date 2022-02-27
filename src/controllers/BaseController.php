@@ -1,6 +1,6 @@
 <?php
 
-class BaseController
+abstract class BaseController
 {
 
     protected $dao;
@@ -10,15 +10,11 @@ class BaseController
         $this->dao = $dao;
     }
 
-    public function getAll()
+    public function getAll($arg)
     {
-        return $this->dao->getAll();
+        return $this->dao->getAll($arg);
     }
 
-    public function getById($id)
-    {
-        return $this->dao->getById($id);
-    }
 
     public function add($object)
     {

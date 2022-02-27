@@ -16,11 +16,13 @@ abstract class BaseDAO
     // required for data mapping (db row to object)
     private $reflection;
 
+    // will be implmented based on model 
     abstract protected function getModelClass();
     abstract protected function getModelTable();
 
-    // implmented based on model 
-    abstract protected function add($object);
+    abstract public function add($object);
+    abstract public function getAll($arg);
+    abstract public function getById($id);
 
 
     function __construct()
@@ -28,36 +30,9 @@ abstract class BaseDAO
         $this->db = new MySQLConnection(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD);
         $this->pdo = $this->db->getPDO();
 
+        // will be used for data mapping
         $this->reflection = new ReflectionClass($this->getModelClass());
     }
-
-    /**
-     * The query can be parameterized by assigning the arguments
-     * @param paramKey name of the field in database
-     * @param param WHERE searching value
-     */
-    public function getAll($paramKey = false, $paramValue = false)
-    {
-        $query = "";
-        if ($paramKey && $paramKey) {
-            $query = "SELECT * FROM " . $this->getModelTable() . " WHERE " . $paramKey . " = :paramValue;";
-            $stmt = $this->pdo->prepare($query);
-            $stmt->bindParam(':paramValue', $paramValue);
-        } else {
-            $query = "SELECT * FROM " . $this->getModelTable() . ";";
-            $stmt = $this->pdo->prepare($query);
-        }
-
-        if ($stmt->execute()) {
-            $result = [];
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                array_push($result, $this->mapToObject($row));
-            }
-            return $result;
-        }
-        return [];
-    }
-
 
     protected function getFields()
     {

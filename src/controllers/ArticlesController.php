@@ -9,7 +9,7 @@ require_once 'BaseController.php';
 
 class ArticlesController extends BaseController
 {
-    public function getById($id)
+    public function getArticleById($id)
     {
         return $this->dao->getById($id);
     }

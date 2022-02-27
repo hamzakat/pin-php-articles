@@ -26,15 +26,26 @@ class ArticleDAO extends BaseDAO
             $stmt->bindParam(":contributorName", $article->getContributorName());
             $stmt->bindParam(":text", $article->getText());
 
-            // execute the prepared statement
-            if ($stmt->execute()) {
-                // Records created successfully. Redirect to landing page
-                header("location: index.php");
-                exit();
-            } else {
-                die("Something went wrong. Please try again later.");
-            }
+            $result = $stmt->execute();
+            return $result;
         }
+    }
+
+
+    public function getAll($arg = false)
+    {
+
+        $query = "SELECT * FROM " . $this->getModelTable() . ";";
+        $stmt = $this->pdo->prepare($query);
+
+        if ($stmt->execute()) {
+            $result = [];
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                array_push($result, $this->mapToObject($row));
+            }
+            return $result;
+        }
+        return [];
     }
 
     public function getById($id)
