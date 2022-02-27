@@ -14,4 +14,26 @@ class ArticleDAO extends BaseDAO
     {
         return 'articles';
     }
+
+    public function add($article)
+    {
+        $query = "INSERT INTO " . $this->getModelTable() . " (title, contributorName, text) VALUES (:title, :contributorName, :text)";
+
+        if ($stmt = $this->pdo->prepare($query)) {
+
+            // Bind variables to the prepared statement parameters
+            $stmt->bindParam(":title", $article->getTitle());
+            $stmt->bindParam(":contributorName", $article->getContributorName());
+            $stmt->bindParam(":text", $article->getText());
+
+            // execute the prepared statement
+            if ($stmt->execute()) {
+                // Records created successfully. Redirect to landing page
+                header("location: index.php");
+                exit();
+            } else {
+                die("Something went wrong. Please try again later.");
+            }
+        }
+    }
 }

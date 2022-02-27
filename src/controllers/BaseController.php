@@ -19,4 +19,9 @@ class BaseController
     {
         return $this->dao->getById($id);
     }
+
+    public function add($object)
+    {
+        return $this->dao->add($object);
+    }
 }

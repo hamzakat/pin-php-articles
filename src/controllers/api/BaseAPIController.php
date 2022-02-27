@@ -31,5 +31,10 @@ class BaseAPIController
             $this->getById($_GET['getById']);
         }
 
+        if (isset($_GET['add']) && $_SERVER['REQUEST_METHOD'] === 'PUT') {
+            $body = file_get_contents("php://input");
+            $event = json_decode($body);
+            $this->dao->add($event);
+        }
     }
 }

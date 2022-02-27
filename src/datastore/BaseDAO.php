@@ -11,13 +11,16 @@ abstract class BaseDAO
 {
     // required for establishing db connection
     private $db;
-    private $pdo;
+    protected $pdo;
 
     // required for data mapping (db row to object)
     private $reflection;
 
     abstract protected function getModelClass();
     abstract protected function getModelTable();
+
+    // implmented based on model 
+    abstract protected function add($object);
 
 
     function __construct()
