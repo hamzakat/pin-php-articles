@@ -5,6 +5,13 @@ require_once "controllers/ArticlesController.php";
 
 // Article objects 
 $article = $articlesController->getById($_GET['id']);
+
+if (empty($article)) {
+    http_response_code(404);
+    include('404.php');
+    die();
+}
+
 $PAGE_TITLE = $article->getTitle();
 
 require "layout/head.php";
