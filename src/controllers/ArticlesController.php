@@ -7,4 +7,12 @@ header("Access-Control-Allow-Headers: *");
 require_once  SITE_ROOT . '/datastore/ArticleDAO.php';
 require_once 'BaseController.php';
 
-$articlesController = new BaseController(new ArticleDAO());
+class ArticlesController extends BaseController
+{
+    public function getById($id)
+    {
+        return $this->dao->getById($id);
+    }
+}
+
+$articlesController = new ArticlesController(new ArticleDAO());

@@ -3,7 +3,7 @@
 class BaseController
 {
 
-    private $dao;
+    protected $dao;
 
     function __construct($dao)
     {

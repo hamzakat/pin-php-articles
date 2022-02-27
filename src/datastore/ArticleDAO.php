@@ -36,4 +36,17 @@ class ArticleDAO extends BaseDAO
             }
         }
     }
+
+    public function getById($id)
+    {
+        $query = "SELECT * FROM " . $this->getModelTable() . " WHERE id = :id;";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':id', $id);
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                return $this->mapToObject($row);
+            }
+        }
+        return null;
+    }
 }

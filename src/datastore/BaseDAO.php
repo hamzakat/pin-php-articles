@@ -31,10 +31,23 @@ abstract class BaseDAO
         $this->reflection = new ReflectionClass($this->getModelClass());
     }
 
-    public function getAll()
+    /**
+     * The query can be parameterized by assigning the arguments
+     * @param paramKey name of the field in database
+     * @param param WHERE searching value
+     */
+    public function getAll($paramKey = false, $paramValue = false)
     {
-        $query = "SELECT * FROM " . $this->getModelTable() . ";";
-        $stmt = $this->pdo->prepare($query);
+        $query = "";
+        if ($paramKey && $paramKey) {
+            $query = "SELECT * FROM " . $this->getModelTable() . " WHERE " . $paramKey . " = :paramValue;";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->bindParam(':paramValue', $paramValue);
+        } else {
+            $query = "SELECT * FROM " . $this->getModelTable() . ";";
+            $stmt = $this->pdo->prepare($query);
+        }
+
         if ($stmt->execute()) {
             $result = [];
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -43,19 +56,6 @@ abstract class BaseDAO
             return $result;
         }
         return [];
-    }
-
-    public function getById($id)
-    {
-        $query = "SELECT * FROM " . $this->getModelTable() . " WHERE id = :id;";
-        $stmt = $this->pdo->prepare($query);
-        $stmt->bindParam(':id', $id);
-        if ($stmt->execute()) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                return $this->mapToObject($row);
-            }
-        }
-        return null;
     }
 
 
