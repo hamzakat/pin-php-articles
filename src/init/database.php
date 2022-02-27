@@ -36,7 +36,3 @@ function init_db(): void
     // close this connection
     $db_conn = null;
 }
-
-
-
-// TODO: switching between MySQL and SQLite modes

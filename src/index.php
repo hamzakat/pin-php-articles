@@ -1,6 +1,6 @@
 <?php
 $PAGE_TITLE = "Articles";
-$DESCRIPTION = "My submission for <a class=\"text-indigo-500\" href=\"https://github.com/humansis/php-assignment\">https://github.com/humansis/php-assignment</a>";
+$DESCRIPTION = "This is my submission for <a class=\"text-indigo-500\" href=\"https://github.com/humansis/php-assignment\">https://github.com/humansis/php-assignment</a>";
 require_once "configs.php";
 require_once "controllers/ArticlesController.php";
 require "layout/head.php";
