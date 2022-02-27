@@ -8,6 +8,13 @@ This is submission for https://github.com/humansis/php-assignment
 - MySQL (connection managed using PDO)
 - Tailwind CSS for page styling
 
+## Demonstrated Design Patterns
+
+- Strategy: I enured to apply DRY principles by creating hierarchical classes.
+- Singleton: Controller classes are singleton classes.
+- Data Mapper: I designed a DAO (Data Access Object) for every data model, which is an abstract layer between the database and application.
+- Factory: PHP does not support constructor overloading, so I used this pattern in model classes design.
+
 ## Requirements
 
 - PHP 7+
