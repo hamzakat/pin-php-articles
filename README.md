@@ -13,7 +13,7 @@ This is submission for https://github.com/humansis/php-assignment
 - PHP 7+
 - MySQL 5
 
-## Usage
+## Setup
 
 Default database conigurations are stored in `configs.php`:
 
