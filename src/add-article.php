@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate text
-    $inputText = trim($_POST["text"]);
+    $inputText = nl2br($_POST["text"]);
     if (empty($inputText)) {
         $textErr = "Please enter the article content.";
     } else {
