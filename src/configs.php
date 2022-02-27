@@ -2,7 +2,6 @@
 
 define('SITE_ROOT', __DIR__);
 
-define("DB", "MYSQL"); // intended for choosing which database system to use
 define("DB_HOST", "localhost");
 define("DB_PORT", "3306");
 define("DB_NAME", "cms");

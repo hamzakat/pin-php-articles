@@ -4,7 +4,11 @@
             <img src="../img/logo-humansis.png" class="w-20 " viewBox="0 0 24 24">
 
         </a>
-        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">2022 Hamza
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+            2022 - by <a href="https://github.com/hamzakat">Hamza Kattan</a>
+        </p>
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+            <a href="mailto:hamzakattan@outlook.com">hamzakattan@outlook.com</a>
         </p>
         <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
             <a class="text-gray-500" href="https://github.com/hamzakat/pin-php-articles">
