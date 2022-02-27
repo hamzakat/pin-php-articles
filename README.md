@@ -5,7 +5,8 @@ This is submission for https://github.com/humansis/php-assignment
 ## Technologies
 
 - PHP 7 (Pure PHP, without external libraries)
-- TailwindCSS for page styling
+- MySQL (connection managed using PDO)
+- Tailwind CSS for page styling
 
 ## Requirements
 
@@ -14,9 +15,9 @@ This is submission for https://github.com/humansis/php-assignment
 
 ## Usage
 
-- Default database conigurations (stored in `configs.php`):
+Default database conigurations are stored in `configs.php`:
 
-```
+```php
 define("DB_HOST", "localhost");
 define("DB_PORT", "3306");
 define("DB_NAME", "cms");
@@ -24,5 +25,32 @@ define("DB_USER", "user");
 define("DB_PASSWORD", "password");
 ```
 
-- `index.php` is the entry point of this service.
-- Database and tables will be initialized on first run (if not created).
+1. You must create user and database based on the configurations in `configs.php`.
+
+   1. Login to MySQL shell as root:
+   2. Create user:
+
+   ```sql
+    CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+   ```
+
+   1. Create database;
+
+   ```sql
+   CREATE DATABASE cms;
+   ```
+
+   1. Grant all Priviliges on `cms` database to the user we created (`user`);
+
+   ```sql
+   GRANT ALL PRIVILEGES ON cms.* TO 'user'@'localhost';
+   ```
+
+   1. Logout
+
+   ```sql
+   quit;
+   ```
+
+2. `index.php` is the entry point of this service.
+3. Tables will be initialized on first run (if not created).
