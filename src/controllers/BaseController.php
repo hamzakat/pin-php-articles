@@ -17,7 +17,7 @@ class BaseController
 
     public function getById($id)
     {
-        return $this->dao->getById($_GET['getById']);
+        return $this->dao->getById($id);
     }
 
     public function handleRequests()
