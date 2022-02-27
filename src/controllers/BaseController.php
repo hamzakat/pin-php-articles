@@ -19,17 +19,4 @@ class BaseController
     {
         return $this->dao->getById($id);
     }
-
-    public function handleRequests()
-    {
-        // handling using URL parameters
-        if (isset($_GET['getAll']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->getAll();
-        }
-
-        if (isset($_GET['getById']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->getById($_GET['getById']);
-        }
-
-    }
 }
