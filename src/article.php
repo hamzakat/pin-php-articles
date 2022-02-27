@@ -1,20 +1,28 @@
 <?php
-$PAGE_TITLE = "Article";
-require("layout/head.php");
+
+require_once "configs.php";
+require_once "controllers/ArticlesController.php";
+
+// Article objects 
+$article = $articlesController->getById($_GET['id']);
+$PAGE_TITLE = $article->getTitle();
+
+require "layout/head.php";
+
 ?>
 
 <!-- Article -->
 <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-15 lg:w-2/ md:w-3/4 mx-auto">
         <div class="flex justify-between mb-6">
-            <span>By <strong>Samer </strong><span class="text-xs text-gray-400">(Samer@mail.com)</span></span>
-            <span class="text-xs text-gray-400">12 Jun 2019</span>
+            <span>By <strong><?php echo $article->getContributorName() ?></strong></span>
+            <span class="text-xs text-gray-400"><?php echo $article->getPublishDate() ?></span>
         </div>
 
         <p class="">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore tempora omnis nam, distinctio iste repellendus accusantium maxime voluptas dolore in odit tenetur dolor eveniet nobis quae modi ad repellat quasi!
-            Nam quos sed voluptatibus corrupti laboriosam, eos quas rem aut molestias harum, non voluptas. Cumque debitis earum iure officia deleniti, obcaecati tempora. Rerum repellat dignissimos soluta reiciendis magni ullam voluptatibus.
-            Dignissimos obcaecati fuga eligendi molestias iste vel illo voluptatum aspernatur, ab tenetur fugiat, neque nesciunt doloribus ipsum fugit quidem esse ex quia.
+            <?php
+            echo $article->getText();
+            ?>
         </p>
 
     </div>
