@@ -20,8 +20,8 @@ This is submission for https://github.com/humansis/php-assignment
 define("DB_HOST", "localhost");
 define("DB_PORT", "3306");
 define("DB_NAME", "cms");
-define("DB_USER", "root");
-define("DB_PASSWORD", "root");
+define("DB_USER", "user");
+define("DB_PASSWORD", "password");
 ```
 
 - `index.php` is the entry point of this service.
