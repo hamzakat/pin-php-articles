@@ -1,9 +1,9 @@
 <?php
 $PAGE_TITLE = "Articles";
 $DESCRIPTION = "My submission for <a class=\"text-indigo-500\" href=\"https://github.com/humansis/php-assignment\">https://github.com/humansis/php-assignment</a>";
-require "layout/head.php";
 require_once "configs.php";
 require_once "controllers/ArticlesController.php";
+require "layout/head.php";
 
 // array of Article objects 
 $articles = $articlesController->getAll();
